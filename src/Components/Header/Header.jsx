@@ -10,7 +10,7 @@ const Header = () => {
   const { ActivePage, handleActivePaage } = useContext(MyContext);
   return (
     <header className="md:container ">
-      <nav className="bg-white fixed z-50 top-0 left-1/2 -translate-x-1/2  w-full flex items-center justify-around py-2 ">
+      <nav className="bg-white fixed z-50 top-0 left-1/2 -translate-x-1/2 w-full flex items-center justify-around py-2 ">
         <Link to="/" className="font-bold text-2xl text-blue">
           eTrade
         </Link>
