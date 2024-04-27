@@ -13,11 +13,19 @@ export const MyContext = createContext(null);
 
 export const ContextProvider = ({ children }) => {
   const [ActivePage, setActivePage] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [titleName, setTitleName] = useState("Home");
 
   function handleActivePaage(curr) {
     setActivePage(curr);
+    setTitleName(curr);
   }
 
+  function handleFilterItems(curr) {
+    setSelectedCategory(curr);
+  }
+
+  console.log(selectedCategory);
   const categories = [
     { id: 1, title: "Iphone", imgUrl: categoriesImg.iphone },
     { id: 2, title: "Computers", imgUrl: categoriesImg.computer },
@@ -37,10 +45,12 @@ export const ContextProvider = ({ children }) => {
   ];
 
   const contextValue = {
+    titleName,
     categories,
     userProfile,
     handleActivePaage,
     ActivePage,
+    handleFilterItems,
   };
 
   return (

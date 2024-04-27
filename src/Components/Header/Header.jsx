@@ -1,5 +1,5 @@
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Menu from "./Menu";
 import ActionsBox from "./ActionsBox";
@@ -7,7 +7,10 @@ import { useContext } from "react";
 import { MyContext } from "../../Context/Context";
 const Header = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
-  const { ActivePage, handleActivePaage } = useContext(MyContext);
+  const { ActivePage, handleActivePaage, titleName } = useContext(MyContext);
+  useEffect(() => {
+    document.title = `eTRADE ${titleName}`;
+  }, [titleName]);
   return (
     <header className="md:container ">
       <nav className="bg-white fixed z-50 top-0 left-1/2 -translate-x-1/2 w-full flex items-center justify-around py-2 ">

@@ -1,3 +1,4 @@
+import Banner from "../Components/Banners/Banner";
 import Category from "../Components/CategoryBox/Category";
 import Header from "../Components/Header/Header";
 import Hero from "../Components/Hero/Hero";
@@ -7,6 +8,7 @@ const Home = () => {
       <Header />
       <Hero />
       <Category />
+      <Banner />
     </div>
   );
 };

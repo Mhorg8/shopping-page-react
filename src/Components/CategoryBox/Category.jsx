@@ -2,7 +2,7 @@ import CategoryContent from "./CategoryContent";
 import { useContext } from "react";
 import { MyContext } from "../../Context/Context";
 const Category = () => {
-  const { categories } = useContext(MyContext);
+  const { categories, handleFilterItems } = useContext(MyContext);
 
   return (
     <div className="container w-full mt-20">
@@ -12,6 +12,7 @@ const Category = () => {
       <div className="grid grid-cols-6 gap-x-5 gap-y-5">
         {categories.map((item) => (
           <div
+            onClick={() => handleFilterItems(item.title)}
             className="col-span-3 md:col-span-2 lg:col-span-1 flex items-center justify-center category-item px-4 py-2 cursor-pointer text-center animate-fadeIn"
             key={item.id}>
             <CategoryContent item={item} />

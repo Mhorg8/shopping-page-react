@@ -11,11 +11,11 @@ const Hero = () => {
           <HeroTextContent />
         </div>
 
-        <div className="col-span-12 order-1 md:order-2 md:col-span-6 place-content-center h-[90vh] md:scale-150 scale-150 relative hero-img">
-          <img className="select-none" src={AirPodImage} alt="AirPodImage" />
+        <div className="col-span-12 order-1 md:order-2 md:col-span-6 place-content-center h-[90vh] scale-150 md:scale-125 relative hero-img">
+          <img className="select-none " src={AirPodImage} alt="AirPodImage" />
           <img
             src={AppleWatch}
-            className="select-none absolute md:bottom-20 bottom-12 rotate-45 right-0 scale-[0.40] mix-blend-color-dodge"
+            className="select-none absolute md:bottom-20 lg:bottom-5 bottom-12 rotate-45 right-0 scale-[0.40] "
             alt=""
           />
           <div className="absolute  flex items-center justify-center w-[120px] h-[120px] bg-blue opacity-80 rounded-full top-1/4 left-20">

@@ -37,7 +37,8 @@
     font-weight: 700;
   }
   /* flex w-fit items-center gap-x-1 px-3 bg-white py-2 text-base font-bold */
-  .primary-btn {
+  .primary-btn,
+  .secondary-btn {
     display: flex;
     align-items: center;
     width: fit-content;
@@ -51,6 +52,13 @@
       filter: drop-shadow(2px);
       color: var(--white);
     }
+  }
+  .secondary-btn {
+    background-color: var(--green);
+    color: var(--white);
+  }
+  .secondary-btn:hover {
+    background-color: var(--blue);
   }
 
   .category-item {
