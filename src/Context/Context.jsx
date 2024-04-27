@@ -16,7 +16,7 @@ export const ContextProvider = ({ children }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [titleName, setTitleName] = useState("Home");
 
-  function handleActivePaage(curr) {
+  function handleActivePage(curr) {
     setActivePage(curr);
     setTitleName(curr);
   }
@@ -29,7 +29,7 @@ export const ContextProvider = ({ children }) => {
   const categories = [
     { id: 1, title: "Iphone", imgUrl: categoriesImg.iphone },
     { id: 2, title: "Computers", imgUrl: categoriesImg.computer },
-    { id: 3, title: "Acssories", imgUrl: categoriesImg.accessories },
+    { id: 3, title: "Accessories", imgUrl: categoriesImg.accessories },
     { id: 4, title: "Laptop", imgUrl: categoriesImg.laptop },
     { id: 5, title: "Monitor", imgUrl: categoriesImg.monitor },
     { id: 6, title: "Console", imgUrl: categoriesImg.console },
@@ -41,14 +41,14 @@ export const ContextProvider = ({ children }) => {
     { id: 2, name: "Mark", imgUrl: img2, age: 22 },
     { id: 3, name: "Mohammad", imgUrl: img3, age: 23 },
     { id: 4, name: "Sarah", imgUrl: img4, age: 29 },
-    { id: 5, name: "Kimiya", imgUrl: img5, age: 25 },
+    { id: 5, name: "Kimia", imgUrl: img5, age: 25 },
   ];
 
   const contextValue = {
     titleName,
     categories,
     userProfile,
-    handleActivePaage,
+    handleActivePage,
     ActivePage,
     handleFilterItems,
   };

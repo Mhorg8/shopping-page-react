@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { MyContext } from "../../Context/Context";
 const Header = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
-  const { ActivePage, handleActivePaage, titleName } = useContext(MyContext);
+  const { ActivePage, handleActivePage, titleName } = useContext(MyContext);
   useEffect(() => {
     document.title = `eTRADE ${titleName}`;
   }, [titleName]);
@@ -34,31 +34,31 @@ const Header = () => {
         {/* LARGE MENU`` */}
         <ul className="hidden md:flex gap-x-5 items-center justify-center large-menu">
           <Link
-            onClick={() => handleActivePaage("Home")}
+            onClick={() => handleActivePage("Home")}
             className={ActivePage === "Home" ? "nav-item active" : "nav-item"}
             to="/">
             Home
           </Link>
           <Link
-            onClick={() => handleActivePaage("Store")}
+            onClick={() => handleActivePage("Store")}
             className={ActivePage === "Store" ? "nav-item active" : "nav-item"}
             to="/Store">
             Store
           </Link>
           <Link
-            onClick={() => handleActivePaage("Blog")}
+            onClick={() => handleActivePage("Blog")}
             className={ActivePage === "Blog" ? "nav-item active" : "nav-item"}
             to="/Blog">
             Blog
           </Link>
           <Link
-            onClick={() => handleActivePaage("About")}
+            onClick={() => handleActivePage("About")}
             className={ActivePage === "About" ? "nav-item active" : "nav-item"}
             to="/About">
             About Us
           </Link>
           <Link
-            onClick={() => handleActivePaage("Contact")}
+            onClick={() => handleActivePage("Contact")}
             className={
               ActivePage === "Contact" ? "nav-item active" : "nav-item"
             }
