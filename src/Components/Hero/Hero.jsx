@@ -18,7 +18,7 @@ const Hero = () => {
             className="select-none absolute md:bottom-20 lg:bottom-1/4 -bottom-24 rotate-45 right-0 scale-[0.30] md:scale-[0.40]"
             alt=""
           />
-          <div className="absolute  flex items-center justify-center h-[90px] w-[90px] md:w-[120px] md:h-[120px] bg-blue opacity-80 rounded-full top-14 left-10 md:top-1/4 md:left-20">
+          <div className="absolute  flex items-center justify-center h-[90px] w-[90px] md:w-[120px] md:h-[120px] bg-blue opacity-80 rounded-full top-16 left-14 md:top-1/4 md:left-20">
             <h3 className="font-medium text-white text-center text-lg md:text-xl select-none">
               Up tp 50% <br />
               <span className="font-bold tracking-wide">0ff</span>

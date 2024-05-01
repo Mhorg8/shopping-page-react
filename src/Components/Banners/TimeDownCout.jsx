@@ -35,7 +35,6 @@ const TimeDownCount = () => {
 
   useEffect(() => {
     startTimer();
-    console.log(timerDays);
     return () => {
       clearInterval(interval.current);
     };

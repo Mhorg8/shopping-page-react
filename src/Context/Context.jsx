@@ -8,13 +8,19 @@ import img3 from "../assets/36.jpg";
 import img4 from "../assets/7.jpg";
 import img5 from "../assets/50.jpg";
 
+import ProductsImages from "../assets/Products/Products";
 import categoriesImg from "../assets/category";
 export const MyContext = createContext(null);
 
 export const ContextProvider = ({ children }) => {
   const [ActivePage, setActivePage] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
+  console.log(selectedCategory);
   const [titleName, setTitleName] = useState("Home");
+  const [quantity, setQuantity] = useState(1);
+  const [cartItems, setCartItems] = useState([]);
+
+  console.log(cartItems);
 
   function handleActivePage(curr) {
     setActivePage(curr);
@@ -25,7 +31,6 @@ export const ContextProvider = ({ children }) => {
     setSelectedCategory(curr);
   }
 
-  console.log(selectedCategory);
   const categories = [
     { id: 1, title: "Iphone", imgUrl: categoriesImg.iphone },
     { id: 2, title: "Computers", imgUrl: categoriesImg.computer },
@@ -44,13 +49,118 @@ export const ContextProvider = ({ children }) => {
     { id: 5, name: "Kimia", imgUrl: img5, age: 25 },
   ];
 
+  const productDetails = [
+    {
+      id: "1",
+      productName: "Apple Watch",
+      price: "890$",
+      rate: 4,
+      imgUrl: ProductsImages.appleWatch,
+    },
+    {
+      id: "2",
+      productName: "Galaxy Watch 6",
+      price: "890$",
+      rate: 3,
+      imgUrl: ProductsImages.galaxyWatch6,
+    },
+    {
+      id: "3",
+      productName: "Apple Ipad Air",
+      price: "900$",
+      rate: 4,
+      imgUrl: ProductsImages.appleIpadAir,
+    },
+    {
+      id: 4,
+      productName: "Apple Ipad Pro",
+      price: "1090$",
+      rate: 5,
+      imgUrl: ProductsImages.appleIpadPro,
+    },
+    {
+      id: 5,
+      productName: "Xbox series X",
+      price: "800$",
+      rate: 3,
+      imgUrl: ProductsImages.xboxSeriesS,
+    },
+    {
+      id: 6,
+      productName: "Xbox series S",
+      price: "1200$",
+      rate: 5,
+      imgUrl: ProductsImages.xboxSeriesX,
+    },
+    {
+      id: 7,
+      productName: "Galaxy Buds2",
+      price: "1200$",
+      rate: 5,
+      imgUrl: ProductsImages.galaxyBuds2,
+    },
+    {
+      id: 8,
+      productName: "Galaxy BudsFe",
+      price: "798$",
+      rate: 5,
+      imgUrl: ProductsImages.galaxyBudsFe,
+    },
+    {
+      id: 9,
+      productName: "Galaxy Smart Tag",
+      price: "499$",
+      rate: 5,
+      imgUrl: ProductsImages.galaxySmartTag,
+    },
+    {
+      id: 10,
+      productName: "Galaxy S24",
+      price: "1200$",
+      rate: 5,
+      imgUrl: ProductsImages.galaxyS24,
+    },
+    {
+      id: 11,
+      productName: "Apple Watch",
+      price: "890$",
+      rate: 2,
+      imgUrl: ProductsImages.appleWatch,
+    },
+    {
+      id: 12,
+      productName: "Xbox series S",
+      price: "1200$",
+      rate: 5,
+      imgUrl: ProductsImages.xboxSeriesX,
+    },
+  ];
+
+  function handleAddToCart(id) {
+    if (!cartItems[id]) {
+      setCartItems((prev) => ({ ...prev, [id]: 1 }));
+    } else {
+      setCartItems((prev) => ({ ...prev, [id]: prev[id] + 1 }));
+      setQuantity((prev) => prev + 1);
+    }
+  }
+
+  function handleRemoveFromCart(id) {
+    setCartItems((prev) => ({ ...prev, [id]: prev[id] - 1 }));
+    setQuantity((prev) => prev - 1);
+  }
+
   const contextValue = {
+    handleAddToCart,
+    handleActivePage,
+    handleFilterItems,
+    handleRemoveFromCart,
+    quantity,
+    productDetails,
     titleName,
     categories,
     userProfile,
-    handleActivePage,
     ActivePage,
-    handleFilterItems,
   };
 
   return (
