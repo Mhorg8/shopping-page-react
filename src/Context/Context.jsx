@@ -15,21 +15,9 @@ export const MyContext = createContext(null);
 export const ContextProvider = ({ children }) => {
   const [ActivePage, setActivePage] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
-  console.log(selectedCategory);
   const [titleName, setTitleName] = useState("Home");
-  const [quantity, setQuantity] = useState(1);
-  const [cartItems, setCartItems] = useState([]);
-
-  console.log(cartItems);
-
-  function handleActivePage(curr) {
-    setActivePage(curr);
-    setTitleName(curr);
-  }
-
-  function handleFilterItems(curr) {
-    setSelectedCategory(curr);
-  }
+  const [cartItems, setCartItems] = useState({});
+  const [openShopList, setOpenShopList] = useState(false);
 
   const categories = [
     { id: 1, title: "Iphone", imgUrl: categoriesImg.iphone },
@@ -58,7 +46,7 @@ export const ContextProvider = ({ children }) => {
       imgUrl: ProductsImages.appleWatch,
     },
     {
-      id: "2",
+      id: 2,
       productName: "Galaxy Watch 6",
       price: "890$",
       rate: 3,
@@ -72,63 +60,63 @@ export const ContextProvider = ({ children }) => {
       imgUrl: ProductsImages.appleIpadAir,
     },
     {
-      id: 4,
-      productName: "Apple Ipad Pro",
-      price: "1090$",
+      id: "4",
+      productName: "Apple Ipad Air",
+      price: "1200$",
       rate: 5,
-      imgUrl: ProductsImages.appleIpadPro,
+      imgUrl: ProductsImages.appleIpadAir,
     },
     {
-      id: 5,
+      id: "5",
       productName: "Xbox series X",
       price: "800$",
       rate: 3,
       imgUrl: ProductsImages.xboxSeriesS,
     },
     {
-      id: 6,
+      id: "6",
       productName: "Xbox series S",
       price: "1200$",
       rate: 5,
       imgUrl: ProductsImages.xboxSeriesX,
     },
     {
-      id: 7,
+      id: "7",
       productName: "Galaxy Buds2",
       price: "1200$",
       rate: 5,
       imgUrl: ProductsImages.galaxyBuds2,
     },
     {
-      id: 8,
+      id: "8",
       productName: "Galaxy BudsFe",
       price: "798$",
       rate: 5,
       imgUrl: ProductsImages.galaxyBudsFe,
     },
     {
-      id: 9,
+      id: "9",
       productName: "Galaxy Smart Tag",
-      price: "499$",
+      price: "798$",
       rate: 5,
       imgUrl: ProductsImages.galaxySmartTag,
     },
     {
-      id: 10,
+      id: "10",
       productName: "Galaxy S24",
       price: "1200$",
       rate: 5,
       imgUrl: ProductsImages.galaxyS24,
     },
     {
-      id: 11,
+      id: "11",
       productName: "Apple Watch",
       price: "890$",
       rate: 2,
       imgUrl: ProductsImages.appleWatch,
     },
     {
-      id: 12,
+      id: "12",
       productName: "Xbox series S",
       price: "1200$",
       rate: 5,
@@ -136,18 +124,31 @@ export const ContextProvider = ({ children }) => {
     },
   ];
 
+  function handleActivePage(curr) {
+    setActivePage(curr);
+    setTitleName(curr);
+  }
+
+  function handleFilterItems(curr) {
+    setSelectedCategory(curr);
+  }
+
+  function handleOpenShopList() {
+    setOpenShopList((prev) => !prev);
+  }
+
   function handleAddToCart(id) {
     if (!cartItems[id]) {
+      handleOpenShopList(true);
       setCartItems((prev) => ({ ...prev, [id]: 1 }));
     } else {
       setCartItems((prev) => ({ ...prev, [id]: prev[id] + 1 }));
-      setQuantity((prev) => prev + 1);
     }
   }
 
   function handleRemoveFromCart(id) {
     setCartItems((prev) => ({ ...prev, [id]: prev[id] - 1 }));
-    setQuantity((prev) => prev - 1);
+    console.log(cartItems);
   }
 
   const contextValue = {
@@ -155,12 +156,14 @@ export const ContextProvider = ({ children }) => {
     handleActivePage,
     handleFilterItems,
     handleRemoveFromCart,
-    quantity,
+    handleOpenShopList,
+    openShopList,
     productDetails,
     titleName,
     categories,
     userProfile,
     ActivePage,
+    cartItems,
   };
 
   return (

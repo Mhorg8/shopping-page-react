@@ -4,12 +4,22 @@ import Rating from "./Rating";
 import { useContext, useState } from "react";
 import { MyContext } from "../../Context/Context";
 const Product = ({ product }) => {
-  const { handleAddToCart, handleRemoveFromCart, quantity } =
-    useContext(MyContext);
+  const { handleAddToCart, handleRemoveFromCart } = useContext(MyContext);
   const [openQuantity, setOpenQuantity] = useState(false);
+  const [quantity, setQuantity] = useState(0);
 
   function handleClick() {
     setOpenQuantity((prev) => !prev);
+  }
+
+  function addToCart(id) {
+    setQuantity((prev) => prev + 1);
+    handleAddToCart(id);
+  }
+
+  function removeFromCart(id) {
+    setQuantity((prev) => prev - 1);
+    handleRemoveFromCart(id);
   }
   return (
     <div className="col-span-6 md:col-span-4 lg:col-span-3 mt-10 rounded-md">
@@ -31,13 +41,13 @@ const Product = ({ product }) => {
             ) : (
               <div className="flex items-center gap-x-3">
                 <button
-                  onClick={() => handleAddToCart(product.id)}
+                  onClick={() => addToCart(product.id)}
                   className="w-6 h-6 flex items-center justify-center bg-gray font-bold text-lg rounded-full">
                   +
                 </button>
                 <span>{quantity < 1 ? 0 : quantity}</span>
                 <button
-                  onClick={() => handleRemoveFromCart(product.id)}
+                  onClick={() => removeFromCart(product.id)}
                   className="w-6 h-6 flex items-center justify-center bg-gray font-bold text-lg rounded-full">
                   -
                 </button>

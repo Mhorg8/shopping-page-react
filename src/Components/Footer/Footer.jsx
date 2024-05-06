@@ -27,7 +27,7 @@ const Footer = () => {
       </div>
 
       <div
-        className="col-span-12 md:col-span-8 flex flex-wrap items-start justify-between order-1 md:order-2
+        className="col-span-12 md:col-span-8 flex flex-wrap gap-y-5 gap-x-5 items-start justify-between order-1 md:order-2
       ">
         <FooterSupports />
         <FooterAboutUs />

@@ -74,4 +74,20 @@
   .footer-header {
     @apply font-bold text-2xl;
   }
+  .shoppingList {
+    position: fixed;
+    top: 0;
+    right: -2000px;
+    width: 90%;
+    height: 100vh;
+    background: var(--blue);
+    z-index: 999;
+    transition: 1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .shoppingList.active {
+    right: 0px;
+  }
 }

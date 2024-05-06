@@ -1,6 +1,6 @@
 import FooterItem from "./FooterItem";
 
-const FooterSupports = () => {
+const FooterSupports = ({ children }) => {
   return (
     <div className="flex flex-col gap-y-5">
       <h2 className="footer-header">SUPPORT</h2>
